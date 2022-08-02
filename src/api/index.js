@@ -2,3 +2,6 @@
 export * from './user'
 // 引入默认导出的东西，重新起名后按需导出 default
 // export { default as xxx } from 'xxx'
+export * from './channel'
+
+export * from './news'
