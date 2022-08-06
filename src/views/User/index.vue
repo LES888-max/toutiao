@@ -26,6 +26,46 @@
         @update-avator="userInfo.photo = $event"
       ></update-avator>
     </van-popup>
+    <van-cell
+      title="昵称"
+      is-link
+      :value="userInfo.name"
+      @click="showName = true"
+    />
+    <van-popup
+      v-model="showName"
+      :style="{ height: '100%', width: '100%' }"
+      position="bottom"
+    >
+      <update-nick-name
+        :nickName="userInfo.name"
+        @changeName="userInfo.name = $event"
+      ></update-nick-name>
+    </van-popup>
+    <van-cell
+      title="性别"
+      is-link
+      :value="userInfo.gender ? '女' : '男'"
+      @click="showGender = true"
+    />
+    <van-popup v-model="showGender" position="bottom">
+      <update-gender
+        :gender="userInfo.gender"
+        @changeGender="userInfo.gender = $event"
+      ></update-gender>
+    </van-popup>
+    <van-cell
+      title="生日"
+      is-link
+      :value="userInfo.birthday"
+      @click="showBirthday = true"
+    />
+    <van-popup v-model="showBirthday" position="bottom">
+      <update-birthday
+        :birthday="userInfo.birthday"
+        @changeBirthday="userInfo.birthday = $event"
+      ></update-birthday>
+    </van-popup>
   </div>
 </template>
 
@@ -33,17 +73,26 @@
 import UpdateAvator from './components/UpdateAvator'
 import { getUserInfo } from '@/api'
 import { resolveToBase64 } from '@/util/resolveToBase64'
+import UpdateNickName from './components/UpdateNickName'
+import UpdateGender from './components/UpdateGender'
+import UpdateBirthday from './components/UpdateBirthday.vue'
 export default {
   name: 'UserInfo',
   data() {
     return {
       userInfo: [],
       isShow: false,
-      photo: ''
+      photo: '',
+      showName: false,
+      showGender: false,
+      showBirthday: false
     }
   },
   components: {
-    UpdateAvator
+    UpdateAvator,
+    UpdateNickName,
+    UpdateGender,
+    UpdateBirthday
   },
   methods: {
     async getUserInfo() {

@@ -51,3 +51,39 @@ export const uploadAvator = (file) => {
     data: fm
   })
 }
+
+export const updateNickName = (name) => {
+  return request({
+    url: '/v1_0/user/profile',
+    method: 'PATCH',
+    data: {
+      name
+    }
+  })
+}
+
+export const updateGender = (gender) => {
+  return request({
+    url: '/v1_0/user/profile',
+    method: 'PATCH',
+    data: {
+      gender
+    }
+  })
+}
+
+export const updateBirthday = (birthday) => {
+  return request({
+    url: '/v1_0/user/profile',
+    method: 'PATCH',
+    data: {
+      birthday
+    }
+  })
+}
+
+export const getUserMessage = () => {
+  return request({
+    url: '/v1_0/user'
+  })
+}
