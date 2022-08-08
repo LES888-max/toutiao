@@ -5,6 +5,7 @@
       icon="search"
       v-for="(item, index) in highLightSuggestions"
       :key="index"
+      @click="choose(index)"
     >
       <template #title>
         <span v-html="item"></span>
@@ -54,7 +55,10 @@ export default {
       } catch {
         this.$toast.fail('获取搜索资源失败')
       }
-    }, 300)
+    }, 300),
+    choose(index) {
+      this.$emit('changeKeywords', this.suggestion[index])
+    }
   }
 }
 </script>

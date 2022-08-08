@@ -9,9 +9,14 @@
         class="search"
         @search="onSearch"
         @focus="onSearchFocus"
+        @cancel="$router.back()"
       />
     </form>
-    <component :is="componentName" :keywords="keywords"></component>
+    <component
+      :is="componentName"
+      :keywords="keywords"
+      @changeKeywords="goSearch"
+    ></component>
   </div>
 </template>
 
@@ -40,11 +45,14 @@ export default {
   },
   methods: {
     onSearch() {
-      console.log('搜索')
       this.isShow = true
     },
     onSearchFocus() {
       this.isShow = false
+    },
+    goSearch(value) {
+      this.keywords = value
+      this.onSearch()
     }
   },
   components: {
