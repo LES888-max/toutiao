@@ -1,7 +1,7 @@
 <template>
   <div>
-    <van-nav-bar title="登录" />
-    <van-form @submit="onSubmit" class="form" ref="form">
+    <van-nav-bar title="登录" key="1" />
+    <van-form @submit="onSubmit" class="form" ref="form" key="2">
       <van-field
         v-model="mobile"
         name="mobile"
@@ -56,7 +56,8 @@ export default {
       mobile: '',
       code: '',
       mobileRules,
-      codeRules
+      codeRules,
+      show: true
     }
   },
   methods: {

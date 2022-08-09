@@ -87,7 +87,6 @@ export default {
         data: { data }
       } = await getUserMessage()
       this.userMessage = data
-      console.log(this.userMessage)
     }
   },
   created() {

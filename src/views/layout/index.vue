@@ -1,6 +1,8 @@
 <template>
   <div>
-    <router-view></router-view>
+    <transition name="van-slide-left" mode="out-in">
+      <router-view></router-view>
+    </transition>
     <van-tabbar route>
       <van-tabbar-item
         v-for="(item, index) in tabbarData"

@@ -1,6 +1,8 @@
 <template>
   <div>
-    <router-view></router-view>
+    <transition name="van-slide-left" mode="out-in">
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -8,8 +10,4 @@
 export default {}
 </script>
 
-<style>
-body {
-  background-color: #f5f7f9;
-}
-</style>
+<style scoped lang="less"></style>
