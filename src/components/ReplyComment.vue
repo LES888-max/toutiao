@@ -6,7 +6,7 @@
       left-arrow
       @click-left="goback"
     />
-    <comment-item :item="item"></comment-item>
+    <comment-item :item="item" type="c"></comment-item>
     <van-cell title="全部回复" />
     <comment-list type="c" :source="item.com_id"></comment-list>
     <div class="post-warp">

@@ -34,7 +34,11 @@
         v-html="detail.content"
       ></div>
       <van-divider>正文结束</van-divider>
-      <article-comments :source="$route.params.id" type="a"></article-comments>
+      <article-comments
+        :source="$route.params.id"
+        type="a"
+        v-if="!showReply"
+      ></article-comments>
     </div>
     <div class="article-buttom">
       <van-button round size="mini" @click="showWAC = true">写评论</van-button>
@@ -63,7 +67,7 @@
       position="bottom"
       :style="{ height: '100%' }"
     >
-      <reply-comment :item="item"></reply-comment>
+      <reply-comment :item="item" v-if="showReply"></reply-comment>
     </van-popup>
   </div>
 </template>
