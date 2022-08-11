@@ -57,7 +57,6 @@ export default {
       }
     },
     async loadNextPageArticle() {
-      console.log('加载')
       try {
         const { data } = await getArticleAPI(this.id, this.pre_timestamp)
         if (data.data.pre_timestamp == null) {
@@ -79,7 +78,6 @@ export default {
     }
   },
   created() {
-    console.log(this.id)
     this.getFirstPageArticle()
   },
   components: {

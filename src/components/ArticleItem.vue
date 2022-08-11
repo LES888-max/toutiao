@@ -3,15 +3,17 @@
     v-if="articleInfo.cover.type === 0"
     :title="articleInfo.title"
     :label="label"
+    @click="goDetail(articleInfo.art_id)"
   />
   <van-cell
     v-else-if="articleInfo.cover.type === 1"
     :title="articleInfo.title"
     :label="label"
+    @click="goDetail(articleInfo.art_id)"
   >
     <van-image width="100" height="100" :src="articleInfo.cover.images[0]" />
   </van-cell>
-  <van-cell v-else>
+  <van-cell v-else @click="goDetail(articleInfo.art_id)">
     <template #title>
       <span>{{ articleInfo.title }}</span>
       <div class="img-box">
@@ -40,6 +42,16 @@ export default {
     label() {
       const art = this.articleInfo
       return `${art.aut_name} ${art.comm_count}评论 ${art.pubdate}`
+    }
+  },
+  methods: {
+    goDetail(id) {
+      this.$router.push({
+        name: 'detail',
+        params: {
+          id
+        }
+      })
     }
   }
 }
